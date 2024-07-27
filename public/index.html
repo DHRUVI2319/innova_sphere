@@ -1,88 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExploreEase - Home</title>
+    <title>ExploreEase - About</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <!-- leaflet routing machine js -->
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 </head>
-
 <body>
 
     <div class="menu">
         <a href="index.html">Home</a>
+        <a href="chatbox.html">ChatBot</a>
         <a href="about.html">About</a>
         <a href="map.html">Map</a>
     </div>
 
-    <div id="home" class="container">
-
-        <div class="left">
-            <div class="input-container">
-                <h2>Innova Sphere</h2>
-                <div class="chat-history" id="chatHistory"></div> <!-- Chat messages will be displayed here -->
-                <div class="textarea-container">
-                    <textarea id="inputText" placeholder="Enter text here"></textarea>
-                    <button id="sendButton" onclick="submitText()"><img src="./icons/send_button.png"></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="color-boxes">
-                <div class="color-box" id = "box1" style="background-color: #FBE8DA;">Possible Leakage at: </div>
-                <div class="color-box" id = "box2" style="background-color: #F79285;">Possible Shortage: </div>
-            </div>
-            <div id="map" class="responsive-map"></div>
-        </div>
-        <style>
-            .chat-history {
-                display: flex;
-                flex-direction: column;
-                height: 80%;
-                overflow-y: scroll;
-                scrollbar-width: none;
-            }
-        
-            .right {
-                flex: 1 1 70%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        
-            .color-boxes {
-                display: flex;
-                justify-content: space-around;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        
-            .color-box {
-                flex: 1;
-                height: 100px; /* Adjust height as needed */
-                border: 1px solid #000;
-                margin: 0 5px; /* Add some margin between the boxes */
-            }
-        
-            #map {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-        
+    <div id="about" class="content-section">
+        <h1>About Innova Sphere</h1>
+        <p>Welcome to Innova Sphere, your ultimate innovation hub designed to foster creativity and collaboration. Whether you're working on a groundbreaking project, seeking inspiration, or connecting with like-minded individuals, Innova Sphere is here to support your journey.</p>
+        <p>Our platform is easy to use: just enter your ideas, projects, or areas of interest, and Innova Sphere will connect you with resources, experts, and collaborators to help you bring your vision to life. We utilize advanced algorithms and real-time data to provide personalized recommendations and insights.</p>
+        <p>Innova Sphere is perfect for:
+        <ul>
+            <li>Innovators looking to develop and refine their ideas.</li>
+            <li>Teams seeking to collaborate on cutting-edge projects.</li>
+            <li>Professionals needing to stay updated with the latest trends and technologies.</li>
+            <li>Anyone passionate about innovation and looking to make a positive impact.</li>
+        </ul>
+        </p>
+        <p>Our mission is to make innovation accessible and enjoyable, so you can focus on creating and exploring new possibilities. Let Innova Sphere guide you on your next innovative adventure!</p>
     </div>
-
-    </div>
-    <script src="./browser-app.js"></script>
 
 </body>
-
 </html>
