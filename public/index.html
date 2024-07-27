@@ -98,8 +98,8 @@
     .cta {
         padding: 50px 20px;
         text-align: center;
-        background-color: #007bff;
-        color: white;
+        background-color: white;
+        color: rgb(0, 0, 0);
     }
     .cta h2 {
         font-size: 2.5em;
@@ -135,7 +135,41 @@
     }
     footer .social-links a:hover {
         text-decoration: underline;
-    }</style>
+    }
+/* Made By Section */
+.made-by {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #2e2e2e;
+    color: white;
+}
+.made-by h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.made-by .team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.made-by .member {
+    text-align: center;
+}
+.made-by .member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.made-by .member p {
+    font-size: 1.2em;
+}
+.made-by p {
+    font-size: 1.2em;
+}
+</style>
 </head>
 <body>
     <div class="menu">
@@ -178,7 +212,25 @@
             <li>Visual representation of the water supply network on an interactive map.</li>
         </ul>
     </section>
-
+    <!-- Made By Section -->
+    <section class="made-by">
+        <h2>Made By</h2>
+        <div class="team">
+            <div class="member">
+                <img src="path/to/image1.jpg" alt="Member 1">
+                <p>Member 1 Name</p>
+            </div>
+            <div class="member">
+                <img src="path/to/image2.jpg" alt="Member 2">
+                <p>Member 2 Name</p>
+            </div>
+            <div class="member">
+                <img src="path/to/image3.jpg" alt="Member 3">
+                <p>Member 3 Name</p>
+            </div>
+        </div>
+        <p>Team Name: [Your Team Name]</p>
+    </section>
     <!-- Call to Action -->
     <section class="cta">
         <h2>Get Involved</h2>
