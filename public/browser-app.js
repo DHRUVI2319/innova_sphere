@@ -75,70 +75,84 @@ document
   });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////// *map
-var map = L.map("map").setView([22.7196, 75.8577], 13);
+const map = L.map('map').setView([22.7196, 75.8577], 13);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
 }).addTo(map);
-        // Node data with coordinates (latitude, longitude), name, and type
-        const nodes = [
-          { id: 1, name: 'Downtown', lat: 22.7196, lon: 75.8577, type: 'Water Treatment Plant' },
-          { id: 2, name: 'North Indore', lat: 22.7276, lon: 75.8597, type: 'Water Treatment Plant' },
-          { id: 3, name: 'Industrial Area', lat: 22.7256, lon: 75.8557, type: 'Water Treatment Plant' },
-          { id: 4, name: 'South Indore', lat: 22.7156, lon: 75.8607, type: 'Water Treatment Plant' },
-          { id: 5, name: 'East Indore', lat: 22.7106, lon: 75.8507, type: 'Water Treatment Plant' },
-          { id: 6, name: 'Residential Zone', lat: 22.7356, lon: 75.8707, type: 'Water Treatment Plant' },
-          { id: 7, name: 'Western Indore', lat: 22.7256, lon: 75.8457, type: 'Distribution Center' },
-          { id: 8, name: 'University Area', lat: 22.7406, lon: 75.8557, type: 'Distribution Center' },
-          { id: 9, name: 'Commercial District', lat: 22.7506, lon: 75.8557, type: 'Distribution Center' },
-          { id: 10, name: 'Central Business District', lat: 22.7206, lon: 75.8657, type: 'Reservoir' },
-          { id: 11, name: 'Suburban Areas', lat: 22.7056, lon: 75.8457, type: 'Reservoir' },
-          { id: 12, name: 'City Outskirts', lat: 22.6956, lon: 75.8357, type: 'Reservoir' }
-      ];
 
-      // Define icons for different types of nodes
-      const icons = {
-          'Water Treatment Plant': L.icon({
-              iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-blue.png',
-              shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34]
-          }),
-          'Distribution Center': L.icon({
-              iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-green.png',
-              shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34]
-          }),
-          'Reservoir': L.icon({
-              iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-red.png',
-              shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34]
-          })
-      };
+// Define nodes with their locations and types
+const nodes = [
+    { id: 1, name: 'Downtown', lat: 22.7196, lon: 75.8577, type: 'Water Treatment Plant', parentId: 1 },
+    { id: 2, name: 'North Indore', lat: 22.7276, lon: 75.8597, type: 'Water Treatment Plant', parentId: 1 },
+    { id: 3, name: 'Industrial Area', lat: 22.7256, lon: 75.8557, type: 'Water Treatment Plant', parentId: 1 },
+    { id: 4, name: 'South Indore', lat: 22.7156, lon: 75.8607, type: 'Water Treatment Plant', parentId: 2 },
+    { id: 5, name: 'East Indore', lat: 22.7106, lon: 75.8507, type: 'Water Treatment Plant', parentId: 4 },
+    { id: 6, name: 'Residential Zone', lat: 22.7356, lon: 75.8707, type: 'Water Treatment Plant', parentId: 2 },
+    { id: 7, name: 'Western Indore', lat: 22.7256, lon: 75.8457, type: 'Distribution Center', parentId: 3 },
+    { id: 8, name: 'University Area', lat: 22.7406, lon: 75.8557, type: 'Distribution Center', parentId: 3 },
+    { id: 9, name: 'Commercial District', lat: 22.7506, lon: 75.8557, type: 'Distribution Center', parentId: 3 },
+    { id: 10, name: 'Central Business District', lat: 22.7206, lon: 75.8657, type: 'Reservoir', parentId: 2 },
+    { id: 11, name: 'Suburban Areas', lat: 22.7056, lon: 75.8457, type: 'Reservoir', parentId: 4 },
+    { id: 12, name: 'City Outskirts', lat: 22.6956, lon: 75.8357, type: 'Reservoir', parentId: 4 }
+];
 
-      // Function to add markers to the map with different colors based on type
-      function addMarkers() {
-          nodes.forEach(node => {
-              // Define icon based on node type
-              const markerIcon = icons[node.type] || L.icon({
-                  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-                  iconSize: [25, 41],
-                  iconAnchor: [12, 41],
-                  popupAnchor: [1, -34]
-              });
+// Define colors for each group of connected nodes
+const colors = [
+    'blue',    // Color for group 1
+    'green',   // Color for group 2
+    'red',     // Color for group 3
+    'orange'   // Color for group 4
+];
 
-              // Create and add marker
-              const marker = L.marker([node.lat, node.lon], { icon: markerIcon }).addTo(map);
-              marker.bindPopup(`<b>${node.name}</b><br>Type: ${node.type}`);
-          });
-      }
+// Group nodes by their parent
+const parentGroups = {};
+nodes.forEach(node => {
+    if (!parentGroups[node.parentId]) {
+        parentGroups[node.parentId] = [];
+    }
+    parentGroups[node.parentId].push(node);
+});
 
-      // Add markers to the map
-      addMarkers();
+// Function to get a color for a node based on its parent group
+function getColorForNode(node) {
+    return colors[node.parentId - 1]; // Adjust index for color assignment
+}
+
+// Function to add markers to the map with colors based on parent group
+function addMarkers() {
+    nodes.forEach(node => {
+        const markerIcon = L.icon({
+            iconUrl: `https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-${getColorForNode(node)}.png`,
+            shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34]
+        });
+
+        // Create and add marker
+        const marker = L.marker([node.lat, node.lon], { icon: markerIcon }).addTo(map);
+        marker.bindPopup(`<b>${node.name}</b><br>Type: ${node.type}`);
+    });
+}
+
+// Function to draw polylines connecting nodes in each group
+function drawPolylines() {
+    Object.keys(parentGroups).forEach(parentId => {
+        const group = parentGroups[parentId];
+        const latlngs = group.map(node => [node.lat, node.lon]);
+
+        if (latlngs.length > 1) {
+            L.polyline(latlngs, {
+                color: getColorForNode(group[0]),
+                weight: 2,
+                opacity: 0.8,
+                dashArray: '5, 5'
+            }).addTo(map);
+        }
+    });
+}
+
+// Add markers and draw polylines to the map
+addMarkers();
+drawPolylines();

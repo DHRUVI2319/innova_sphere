@@ -5,7 +5,20 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.color-box {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.box1 {
+    background-color: lightblue;
+}
+.box2 {
+    background-color: lightcoral;
+}
+.box-container {
+    display: flex;
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -163,6 +176,7 @@ body {
 .right {
     flex: 1 1 70%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.static("./public"));
 
-let inputText = "";
+let inputText = ""; // Variable to store input text
 let data = `ActualFlowRates
 1, 1, 1600, 2024-07-01 10:00:00
 2, 2, 1500, 2024-07-01 10:00:00
@@ -25,7 +25,7 @@ let data = `ActualFlowRates
 9, 9, 2000, 2024-07-01 10:00:00
 10, 10, 1900, 2024-07-01 10:00:00
 11, 11, 1450, 2024-07-01 10:00:00
-12, 12, 1500, 2024-07-01 10:00:00`;
+12, 12, 1500, 2024-07-01 10:00:00`; // Hardcoded data for demonstration
 
 
 // Route to optimize route
