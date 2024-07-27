@@ -3,11 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innova Sphere - Home</title>
+    <title>Indore जल सार - Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1e1e;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .menu a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.2em;
+    }
+    
+    .menu a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Hero Section */
+    .hero {
+        background: url('path/to/your/image.jpg') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.5em;
+    }
+    .hero button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .hero button:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Project Overview */
+    .overview {
+        padding: 50px 20px;
+        background-color: #2e2e2e;
+    }
+    .overview h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .overview p, .overview ul {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+    .overview ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    
+    /* Key Features */
+    .features {
+        padding: 50px 20px;
+        background-color: #f4f4f4;
+        color: #000;
+    }
+    .features h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .features ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    .features ul li {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+    }
+    
+    /* Call to Action */
+    .cta {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+    }
+    .cta h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .cta p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    .cta button {
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .cta button:hover {
+        background-color: #003f7f;
+    }
+    
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+    footer .social-links a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    footer .social-links a:hover {
+        text-decoration: underline;
+    }</style>
 </head>
 <body>
-
     <div class="menu">
         <a href="index.html">Home</a>
         <a href="chatbox.html">ChatBot</a>
@@ -16,11 +144,52 @@
         <a href="login.html">Login</a>
     </div>
 
-    <div id="about" class="content-section">
+    <!-- Hero Section -->
+    <section class="hero">
         <h1>INDORE जल सार</h1>
-        <h3>Welcome to our Website</h3>
-        <img src="pictures/iloveIndore.png" alt="I love Indore" style="width:100%;max-width:600px;">
-    </div>
+        <p>Water Supply Management System for the Municipal Corporation</p>
+        <button onclick="window.location.href='about.html'">Learn More</button>
+    </section>
 
+    <!-- Project Overview -->
+    <section class="overview">
+        <h2>Background</h2>
+        <p>Indore, like many cities, relies heavily on river water for its supply, with the Narmada River being the primary source.</p>
+        <p>The key issue in Indore's water management system is the absence of a mechanism to measure and track the amount of water distributed to each household. Although the intake from the Narmada River is monitored, the distribution across different wards and areas within the city is not. This lack of measurement and tracking results in several challenges:</p>
+        <ul>
+            <li>Inability to identify and address water wastage or leakages.</li>
+            <li>Difficulties in ensuring equitable distribution of water.</li>
+            <li>Lack of data to support decision-making for maintenance and upgrades of the water supply.</li>
+        </ul>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Real-time monitoring of water distribution and consumption.</li>
+            <li>Identification of leakages and wastage in the water supply network.</li>
+            <li>Analysis of water usage patterns to optimize distribution and reduce shortages.</li>
+            <li>Interactive chatbot for reporting water-related issues and receiving assistance.</li>
+            <li>Visual representation of the water supply network on an interactive map.</li>
+        </ul>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Get Involved</h2>
+        <p>Our system is designed to improve the efficiency and effectiveness of Indore's water management, ensuring equitable distribution and sustainable use of water resources.</p>
+        <button onclick="window.location.href='contact.html'">Contact Us</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Indore जल सार. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
 </body>
 </html>
