@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreEase - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- leaflet routing machine js -->
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <!-- <a href="history.html">History</a> -->
+    </div>
+
+    <div id="home" class="container">
+        <div class="left">
+            <div class="input-container">
+                <h2>ExploreEase</h2>
+                <div class="chat-history" id="chatHistory"></div> <!-- Chat messages will be displayed here -->
+                <div class="textarea-container">
+                    <textarea id="inputText" placeholder="Enter text here"></textarea>
+                    <button id="sendButton" onclick="submitText()" ><img src="./icons/send_button.png"></button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h2></h2>
+            <div id="map" class="responsive-map"></div>
+        </div>
+    </div>
+    <script src="./browser-app.js"></script>
+
+</body>
+</html>
