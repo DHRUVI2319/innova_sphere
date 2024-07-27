@@ -13,11 +13,27 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 let inputText = "";
+let data = `ActualFlowRates
+1, 1, 1600, 2024-07-01 10:00:00
+2, 2, 1500, 2024-07-01 10:00:00
+3, 3, 2600, 2024-07-01 10:00:00
+4, 4, 1700, 2024-07-01 10:00:00
+5, 5, 1550, 2024-07-01 10:00:00
+6, 6, 2200, 2024-07-01 10:00:00
+7, 7, 1600, 2024-07-01 10:00:00
+8, 8, 1550, 2024-07-01 10:00:00
+9, 9, 2000, 2024-07-01 10:00:00
+10, 10, 1900, 2024-07-01 10:00:00
+11, 11, 1450, 2024-07-01 10:00:00
+12, 12, 1500, 2024-07-01 10:00:00`;
+
+
 // Route to optimize route
 app.post("/get_text", async (req, res) => {
   try {
     inputText = req.body.text;
     console.log(inputText);
+
     res.json();
   } catch (error) {
     console.error(error);
@@ -37,7 +53,7 @@ app.get("/stream", (req, res) => {
   };
 
   // Assuming streamResponse is defined elsewhere in app.js
-  const response = streamResponse(inputText, sendEventStreamData);
+  const response = streamResponse(inputText + data, sendEventStreamData);
 
 
   req.on("close", () => {
@@ -66,12 +82,13 @@ async function streamResponse(text, sendDataCallback) {
   }
 
   const postData = {
-    model: "llama3.1",
+    model: "trainmodel",
     messages: [
       {
         role: "user",
         content:
-          text,
+          text         
+          ,
       },
     ],
     stream: true,

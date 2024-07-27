@@ -75,9 +75,34 @@ document
   });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////// *map
-var map = L.map("map").setView([20.5937, 78.9629], 5);
+var map = L.map("map").setView([22.7196, 75.8577], 13);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
+const nodes = [
+  { id: 1, name: 'Downtown', lat: 22.7196, lon: 75.8577, type: 'Water Treatment Plant' },
+  { id: 2, name: 'North Indore', lat: 22.7276, lon: 75.8597, type: 'Water Treatment Plant' },
+  { id: 3, name: 'Industrial Area', lat: 22.7256, lon: 75.8557, type: 'Water Treatment Plant' },
+  { id: 4, name: 'South Indore', lat: 22.7156, lon: 75.8607, type: 'Water Treatment Plant' },
+  { id: 5, name: 'East Indore', lat: 22.7106, lon: 75.8507, type: 'Water Treatment Plant' },
+  { id: 6, name: 'Residential Zone', lat: 22.7356, lon: 75.8707, type: 'Water Treatment Plant' },
+  { id: 7, name: 'Western Indore', lat: 22.7256, lon: 75.8457, type: 'Distribution Center' },
+  { id: 8, name: 'University Area', lat: 22.7406, lon: 75.8557, type: 'Distribution Center' },
+  { id: 9, name: 'Commercial District', lat: 22.7506, lon: 75.8557, type: 'Distribution Center' },
+  { id: 10, name: 'Central Business District', lat: 22.7206, lon: 75.8657, type: 'Reservoir' },
+  { id: 11, name: 'Suburban Areas', lat: 22.7056, lon: 75.8457, type: 'Reservoir' },
+  { id: 12, name: 'City Outskirts', lat: 22.6956, lon: 75.8357, type: 'Reservoir' }
+];
+
+// Function to add markers to the map
+function addMarkers() {
+  nodes.forEach(node => {
+      const marker = L.marker([node.lat, node.lon]).addTo(map);
+      marker.bindPopup(`<b>${node.name}</b><br>Type: ${node.type}`);
+  });
+}
+
+// Add markers to the map
+addMarkers();
