@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const path = require("path");
 const axios = require("axios");
+const mysql = require("mysql2");
 
 // Initialize express app
 const app = express();
@@ -13,19 +14,54 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 let inputText = ""; // Variable to store input text
-let data = `ActualFlowRates
-1, 1, 1600, 2024-07-01 10:00:00
-2, 2, 1500, 2024-07-01 10:00:00
-3, 3, 2600, 2024-07-01 10:00:00
-4, 4, 1700, 2024-07-01 10:00:00
-5, 5, 1550, 2024-07-01 10:00:00
-6, 6, 2200, 2024-07-01 10:00:00
-7, 7, 1600, 2024-07-01 10:00:00
-8, 8, 1550, 2024-07-01 10:00:00
-9, 9, 2000, 2024-07-01 10:00:00
-10, 10, 1900, 2024-07-01 10:00:00
-11, 11, 1450, 2024-07-01 10:00:00
-12, 12, 1500, 2024-07-01 10:00:00`; // Hardcoded data for demonstration
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'your_password',
+  database: 'WaterDistributionSystem'
+
+});
+db.connect((err) => {
+  if (err) {
+      console.error('Error connecting to MySQL:', err);
+      return;
+  }
+  console.log('Connected to MySQL');
+});
+let flowRatesData = [];
+const fetchData = () => {
+  db.query('SELECT * FROM ActualFlowRates', (err, results) => {
+      if (err) {
+          console.error('Error fetching data:', err);
+          return;
+      }
+      flowRatesData = results;
+      //console.log('Data fetched:', flowRatesData);
+  });
+};
+
+fetchData();
+setInterval(fetchData, 10 * 60 * 1000); // Fetch data every 10 minutes
+
+// Route to get flow rates data
+app.get("/flow_rates", (req, res) => {
+  res.json(flowRatesData);
+});
+let data = flowRatesData;
+// let data = `ActualFlowRates
+// 1, 1, 1600, 2024-07-01 10:00:00
+// 2, 2, 1500, 2024-07-01 10:00:00
+// 3, 3, 2600, 2024-07-01 10:00:00
+// 4, 4, 1700, 2024-07-01 10:00:00
+// 5, 5, 1550, 2024-07-01 10:00:00
+// 6, 6, 2200, 2024-07-01 10:00:00
+// 7, 7, 1600, 2024-07-01 10:00:00
+// 8, 8, 1550, 2024-07-01 10:00:00
+// 9, 9, 2000, 2024-07-01 10:00:00
+// 10, 10, 1900, 2024-07-01 10:00:00
+// 11, 11, 1450, 2024-07-01 10:00:00
+// 12, 12, 1500, 2024-07-01 10:00:00`; // Hardcoded data for demonstration
 
 
 // Route to optimize route

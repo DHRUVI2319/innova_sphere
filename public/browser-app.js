@@ -1,3 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+  fetchFlowRates();
+  setInterval(fetchFlowRates, 10 * 1000); // Fetch data every 10 minutes
+
+  async function fetchFlowRates() {
+    console.log('Fetching flow rates...');
+    try {
+      const response = await fetch('/flow_rates');
+      const data = await response.json();
+      console.log(data); // Log the data to verify the response
+      const tableBody = document.querySelector('#flowRatesTable tbody');
+      tableBody.innerHTML = '';
+  
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.id}</td>
+          <td>${row.ward}</td>
+          <td>${row.flow_rate}</td>
+          <td>${row.timestamp}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    } catch (error) {
+      console.error('Error fetching flow rates:', error);
+    }
+  }
+
+
+/////////////////////////////////////////////////////////////////////////////////
 function submitText() {
   const text = document.getElementById("inputText").value;
   const chatHistory = document.getElementById("chatHistory");
@@ -64,15 +94,12 @@ async function startEventStream() {
     console.error("Failed to setup EventStream", error);
   }
 }
+});
 
-document
-  .getElementById("inputText")
-  .addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      submitText();
-    }
-  });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////// *map
 const map = L.map('map').setView([22.7196, 75.8577], 13);
@@ -156,3 +183,11 @@ function drawPolylines() {
 // Add markers and draw polylines to the map
 addMarkers();
 drawPolylines();
+document
+  .getElementById("inputText")
+  .addEventListener("keypress", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      submitText();
+    }
+  });

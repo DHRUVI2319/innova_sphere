@@ -9,13 +9,31 @@ Hack'ndore
 4. Run `npm install` to install dependencies.
 5. Setup Ollama server:
    - Run the following commands in your terminal:
-     ```
+     ```sh
      curl -fsSL https://ollama.com/install.sh | sh
      ollama serve
      ```
    - In a new terminal, run:
-     ```
+     ```sh
      ollama pull llama3.1
      ollama create trainmodel -f ./Modelfile
      ```
-6. Run `npm start` to start the application.
+6. Create and initialize MySQL Server:
+   - Update package lists:
+     ```sh
+     sudo apt update
+     ```
+   - Install MySQL server:
+     ```sh
+     sudo apt install mysql-server
+     ```
+   - Secure MySQL installation:
+     ```sh
+     sudo mysql_secure_installation
+     ```
+     (Give no password for now)
+   - Initialize MySQL database:
+     ```sh
+     sudo mysql -u root -p < initialize.sql
+     ```
+7. Run `npm start` to start the application.
