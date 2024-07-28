@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="style.css">
+  <style>/* Login Section */
+    .login {
+      background-color: #2e2e2e;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        max-width: 800px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .login h2 {
+        font-size: 3em;
+        margin-bottom: 30px;
+    }
+    .login form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login label {
+        font-size: 1.3em;
+        margin: 15px 0 10px;
+    }
+    .login input {
+        width: 60%;
+        max-width: 400px;
+        padding: 15px;
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1.2em;
+    }
+    .login button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+        color: white;
+        background-color: #0056b3;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .login button:hover {
+        background-color: #444;
+    }    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+    footer .social-links a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    footer .social-links a:hover {
+        text-decoration: underline;
+    }</style>
+</head>
+<body>
+	<!-- Header -->
+	<div class="menu">
+		<a href="index.html">Home</a>
+		<a href="chatbox.html">ChatBot</a>
+		<a href="about.html">About</a>
+		<a href="map.html">Map</a>
+    <a href="login.html">Login</a>
+		<a href="contact.html">Contact</a>
+	</div>
+
+	<!-- Login Section -->
+	<section class="login">
+		<h2>Login</h2>
+		<form action="submit_login.php" method="post">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+
+			<button type="submit">Login</button>
+		</form>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="contact.html">Don't have an account? Contact Us</a>
+
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>&copy; 2024 Indore जल सार. All rights reserved.</p>
+		<div class="social-links">
+			<a href="#">Facebook</a>
+			<a href="#">Twitter</a>
+			<a href="#">LinkedIn</a>
+		</div>
+	</footer>
+</body>
+</html>

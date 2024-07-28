@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="style.css">
+  <style>/* Contact Section */
+    .contact {
+      background-color: #2e2e2e;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        max-width: 800px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .contact h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact label {
+        font-size: 1.2em;
+        margin: 10px 0 5px;
+    }
+    .contact input, .contact textarea {
+        width: 80%;
+        max-width: 500px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .contact button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: white;
+        background-color: #0056b3;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .contact button:hover {
+        background-color: #444;
+    }
+    
+    /* Contact Information Section */
+    .contact-info {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: #2e2e2e;
+        color: white;
+    }
+    .contact-info h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .contact-info p {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+    footer {
+        background-color: #1e1e1e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+    footer .social-links a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    footer .social-links a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+	<!-- Header -->
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="chatbox.html">ChatBot</a>
+    <a href="about.html">About</a>
+    <a href="map.html">Map</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+	<!-- Contact Section -->
+	<section class="contact">
+		<h2>Get in Touch</h2>
+		<form action="#" method="post">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="4" required></textarea>
+
+			<button type="submit">Send Message</button>
+		</form>
+	</section>
+
+	<!-- Contact Information -->
+	<section class="contact-info">
+		<h2>Contact Information</h2>
+		<p>Email: contact@yourdomain.com</p>
+		<p>Phone: +123 456 7890</p>
+		<p>Address: 123 Your Street, Your City, Your Country</p>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>&copy; 2024 Indore जल सार. All rights reserved.</p>
+		<div class="social-links">
+			<a href="#">Facebook</a>
+			<a href="#">Twitter</a>
+			<a href="#">LinkedIn</a>
+		</div>
+	</footer>
+</body>
+</html>
