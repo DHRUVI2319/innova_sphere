@@ -74,7 +74,45 @@
         list-style-type: disc;
         padding-left: 20px;
     }
-    
+    /* Flow Rates Section */
+.flow-rates {
+    padding: 50px 20px;
+    background-color: #2e2e2e;
+    text-align: center;
+}
+.flow-rates h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.flow-rates table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.flow-rates th, .flow-rates td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.flow-rates th {
+    background-color: #2e2e2e;
+    color: white;
+    font-weight: bold;
+}
+.flow-rates tr:nth-child(even) {
+    background-color: #f9f9f9;
+    color: #000;
+}
+.flow-rates tr:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+.flow-rates tr:hover:nth-child(even) {
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+}
     /* Key Features */
     .features {
         padding: 50px 20px;
@@ -192,7 +230,7 @@
     </section>
 
     <!-- Project Overview -->
-    <section class="overview">
+    <!-- <section class="overview">
         <h2>Background</h2>
         <p>Indore, like many cities, relies heavily on river water for its supply, with the Narmada River being the primary source.</p>
         <p>The key issue in Indore's water management system is the absence of a mechanism to measure and track the amount of water distributed to each household. Although the intake from the Narmada River is monitored, the distribution across different wards and areas within the city is not. This lack of measurement and tracking results in several challenges:</p>
@@ -201,8 +239,94 @@
             <li>Difficulties in ensuring equitable distribution of water.</li>
             <li>Lack of data to support decision-making for maintenance and upgrades of the water supply.</li>
         </ul>
+    </section> -->
+    <section class="flow-rates">
+        <h2>Actual Flow Rates</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ward</th>
+                    <th>Flow Rate (L/h)</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1600</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>1500</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>2600</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>1700</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>1550</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>2200</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>1600</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>1550</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>2000</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>1900</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>1450</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>1500</td>
+                    <td>2024-07-01 10:00:00</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
-
     <!-- Key Features -->
     <section class="features">
         <h2>Key Features</h2>
