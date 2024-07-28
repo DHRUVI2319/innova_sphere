@@ -31,7 +31,7 @@ Hack'ndore
      ```sh
      sudo mysql_secure_installation
      ```
-     (Give no password for now)
+     (Give your_password password for now)
    - Initialize MySQL database:
      ```sh
      sudo mysql -u root -p < initialize.sql
