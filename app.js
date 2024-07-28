@@ -31,7 +31,19 @@ db.connect((err) => {
 });
 let flowRatesData = [];
 const fetchData = () => {
-  db.query('SELECT * FROM ActualFlowRates', (err, results) => {
+  const query = `
+    SELECT 
+        afr.FlowRateID,
+        n.NodeName AS Ward,
+        afr.ActualFlow,
+        afr.DateRecorded
+    FROM 
+        ActualFlowRates afr
+    JOIN 
+        Nodes n ON afr.NodeID = n.NodeID;
+  `;
+
+  db.query(query, (err, results) => {
       if (err) {
           console.error('Error fetching data:', err);
           return;

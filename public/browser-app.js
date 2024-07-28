@@ -1,32 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  fetchFlowRates();
-  setInterval(fetchFlowRates, 10 * 1000); // Fetch data every 10 minutes
-
-  async function fetchFlowRates() {
-    console.log('Fetching flow rates...');
-    try {
-      const response = await fetch('/flow_rates');
-      const data = await response.json();
-      console.log(data); // Log the data to verify the response
-      const tableBody = document.querySelector('#flowRatesTable tbody');
-      tableBody.innerHTML = '';
-  
-      data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${row.id}</td>
-          <td>${row.ward}</td>
-          <td>${row.flow_rate}</td>
-          <td>${row.timestamp}</td>
-        `;
-        tableBody.appendChild(tr);
-      });
-    } catch (error) {
-      console.error('Error fetching flow rates:', error);
-    }
-  }
-
-
 /////////////////////////////////////////////////////////////////////////////////
 function submitText() {
   const text = document.getElementById("inputText").value;
@@ -94,7 +65,7 @@ async function startEventStream() {
     console.error("Failed to setup EventStream", error);
   }
 }
-});
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
