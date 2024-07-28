@@ -30,7 +30,11 @@
         <div class="left">
             <div class="input-container">
                 <h2>INDORE जल सार</h2>
-                <div class="chat-history" id="chatHistory"></div> <!-- Chat messages will be displayed here -->
+                <div class="chat-history" id="chatHistory">
+
+                    <div id="loadingIndicator" class="chatBubbleAiwait" style="display: none;">Thinking...</div>
+                </div> <!-- Chat messages will be displayed here -->
+                
                 <div class="textarea-container">
                     <textarea id="inputText" placeholder="Enter text here"></textarea>
                     <button id="sendButton" onclick="submitText()"><img src="./icons/send_button.png"></button>

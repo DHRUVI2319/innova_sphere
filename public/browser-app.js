@@ -1,5 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
 function submitText() {
+
   const text = document.getElementById("inputText").value;
   const chatHistory = document.getElementById("chatHistory");
 
@@ -10,9 +11,16 @@ function submitText() {
   chatHistory.appendChild(messageDiv);
   chatHistory.scrollTop = chatHistory.scrollHeight;
   inputText.value = "";
-  initiateFetch(text);
+  const loadingIndicator = document.getElementById("loadingIndicator");
+  chatHistory.appendChild(loadingIndicator);
+  loadingIndicator.style.display = "flex";
+  initiateFetch(text).then(() => {
+    // Hide the loading indicator after the response is received
+    loadingIndicator.style.display = "none";
+  });
 }
 async function initiateFetch(text) {
+
   //const text = document.getElementById("chatBubbleAi").value;
   try {
     const response = await fetch("/get_text", {

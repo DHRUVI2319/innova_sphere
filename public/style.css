@@ -64,7 +64,18 @@ body {
     align-self: flex-start; 
     text-align: left; 
 }
-
+.chatBubbleAiwait {
+    background-color: #3bad3b;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    max-width: 60%;
+    word-wrap: break-word;
+    align-self: flex-start; 
+    text-align: left; 
+}
 #inputText {
     width: 100%;
     height: 70px; 
